@@ -6,6 +6,11 @@ function pobieranie(){
 	    	if(Date.parse(x1) > Date.parse(x2)){
 	    		alert("Błedny zakres dat");
 	    	}
+	    	
+	    	var to_long = (Date.parse(x1)) - (Date.parse(x2));
+	    	if(to_long > (-31536000000)){
+	    		alert("Pow");
+	    	}
 
 	    var $url = 'https://api.nbp.pl/api/cenyzlota/' + x1 + '/' + x2 +'/?format=json';
   
