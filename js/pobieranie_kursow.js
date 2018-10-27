@@ -7,7 +7,7 @@ function pobieranie(){
 	    		alert("Błedny zakres dat");
 	    	}
 
-	    var $url = 'http://api.nbp.pl/api/cenyzlota/' + x1 + '/' + x2 +'/?format=json';
+	    var $url = 'https://api.nbp.pl/api/cenyzlota/' + x1 + '/' + x2 +'/?format=json';
   
 	    $.ajax({
 		    type:'GET',
