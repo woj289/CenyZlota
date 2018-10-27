@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/datepicker.css">
+	<script src="js/main.js"></script>
+	<script src="js/pobieranie_kursow.js"></script>
+	<script src="js/sortowanie.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+
+	<script>
+			$(function () {
+			$('.datepicker').datepicker({
+	    	format: 'yyyy-mm-dd'
+	    	});
+		});
+	</script>
+
+</head>
+<body>
+	
+	<div class="well">
+		<b>Wybierz okres, aplikacja wyswietli dla Ciebie ceny zlota w tym okresie.</b>
+		<br><br>
+		Od : <input id="date1" class="datepicker" type="text" name="date"> 
+		Do : <input id="date2" class="datepicker" type="text" name="date"> 
+		<br><br>
+		<button type="button" class="btn btn-primary" onclick="pobieranie()">Pobierz</button>
+	</div>
+
+	<br><br>
+
+	<table id="table" class="table"  align="center">
+    	<thead>
+      		<tr>
+        		<th>Data <button type="button" class="btn btn-primary" onclick="sort_date()">↓</button> </th>
+        		<th>Cena <button type="button" class="btn btn-primary" onclick="sort_price()">↓</button></th>
+      		</tr>
+    	</thead>
+ 	</table>
+
+	<div class="wartosc_maksymalna info"></div>
+	<div class="wartosc_minimalna  info"></div>
+	<div class="mediana  info"></div>
+
+	<input type="hidden" id="price_order" value="asc">
+
+</body>
+
+</html>
+
+
