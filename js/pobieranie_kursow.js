@@ -2,7 +2,7 @@ function pobieranie(){
 
 	    var x1 = document.getElementById("date1").value;
 	    var x2 = document.getElementById("date2").value;
-	    var $url = 'http://api.nbp.pl/api/cenyzlota/' + x1 + '/' + x2 +'/?format=json';
+	    var $url = 'https://api.nbp.pl/api/cenyzlota/' + x1 + '/' + x2 +'/?format=json';
    
 	    sprawdzanieDaty(x1, x2);
 
