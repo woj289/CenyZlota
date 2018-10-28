@@ -1,34 +1,16 @@
 
-	function sort_price() {
+function sort(rodzaj) {
 	var table = $('#table');
-
-	 table.find('tr').sort(function(a, b) 
-	 {
-	  	if($('#price_order').val()=='asc') 
-	  	{
-	   		return $('td:last', a).text().localeCompare($('td:last', b).text());
+	table.find('tr').sort(function(a, b) 
+	{
+	  	if($('#price_order').val()=='asc') {
+	   		return $(rodzaj, a).text().localeCompare($(rodzaj, b).text());
 	  	}
-	  	else 
-	  	{
-	  		 return $('td:last', b).text().localeCompare($('td:last', a).text());
+	  	else {
+	  		 return $(rodzaj, b).text().localeCompare($(rodzaj, a).text());
 	  	}
 			
 	 }).appendTo(table);
-	}
+}																							
 
-	function sort_date() {
-	var table = $('#table');
-
-	 table.find('tr').sort(function(a, b) 
-	 {
-	  	if($('#price_order').val()=='asc') 
-	  	{
-	   		return $('td:first', a).text().localeCompare($('td:first', b).text());
-	  	}
-	  	else 
-	  	{
-	  		 return $('td:first', b).text().localeCompare($('td:first', a).text());
-	  	}
-			
-	 }).appendTo(table);
-	}
+	

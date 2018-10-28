@@ -9,42 +9,70 @@
 	<script src="js/sortowanie.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 
+
+
 	<script>
 			$(function () {
-			$('.datepicker').datepicker({
+			$('.datepicker').datepicker({				
 	    	format: 'yyyy-mm-dd'
 	    	});
 		});
 	</script>
 
+	<script>
+	$(document).ready(function(){
+	  $("#myInput").on("keyup", function() {
+	    var value = $(this).val().toLowerCase();
+	    $("#table tr").filter(function() {
+	      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	    });
+	  });
+	});
+	</script>
+
+	
+
 </head>
 <body>
 	
-	<div class="well">
-		<b>Wybierz okres, aplikacja wyswietli dla Ciebie ceny zlota w tym okresie.</b>
+	
+		<header>Wybierz okres, aplikacja wyswietli dla Ciebie ceny zlota w tym okresie.</header>
+
+		<nav>
+			Od : <input id="date1" class="datepicker" type="text" name="date"> 
+			Do : <input id="date2" class="datepicker" type="text" name="date"> 
+			<br><br>
+			<button type="button" class="btn btn-primary" onclick="pobieranie()">Pobierz</button>
+		</nav>
+
+		<center><input id="myInput" type="text" placeholder="Search.."></center>
 		<br><br>
-		Od : <input id="date1" class="datepicker" type="text" name="date"> 
-		Do : <input id="date2" class="datepicker" type="text" name="date"> 
-		<br><br>
-		<button type="button" class="btn btn-primary" onclick="pobieranie()">Pobierz</button>
-	</div>
+	
 
-	<br><br>
+	
+		<main class="users">
+			<table id="table" class="table"  align="center">
+				
+		    	<thead>
+		      	<tr>
+		        	<th>Data <button type="button" class="btn btn-primary" onclick="sort('td:first')">↓</button> </th>
+		        	<th>Cena <button type="button" class="btn btn-primary" onclick="sort('td:last')">↓</button></th>
+		      	</tr>
+		    	</thead>
+		
+	 		</table>
+ 		</main>
 
-	<table id="table" class="table"  align="center">
-    	<thead>
-      		<tr>
-        		<th>Data <button type="button" class="btn btn-primary" onclick="sort_date()">↓</button> </th>
-        		<th>Cena <button type="button" class="btn btn-primary" onclick="sort_price()">↓</button></th>
-      		</tr>
-    	</thead>
- 	</table>
+ 	<section>
+		<div class="wartosc_maksymalna info"></div>
+		<div class="wartosc_minimalna  info"></div>
+		<div class="mediana  info"></div>
+		<input type="hidden" id="price_order" value="asc">
+	</section>
 
-	<div class="wartosc_maksymalna info"></div>
-	<div class="wartosc_minimalna  info"></div>
-	<div class="mediana  info"></div>
 
-	<input type="hidden" id="price_order" value="asc">
+
+
 
 </body>
 
